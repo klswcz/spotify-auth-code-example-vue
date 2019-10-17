@@ -41,20 +41,21 @@
             msg: String
         },
         mounted() {
-            let SpotifyWebApi = require('spotify-web-api-node');
-            let spotifyApi = new SpotifyWebApi({
-                clientId: '7c64cd79ca78468b8119df22e9f6d9a6',
-                clientSecret: '7dbf678476c348129dedd98cec185a26',
-                redirectUri: 'http://www.example.com/callback'
-            });
-            axios.get('https://accounts.spotify.com/authorize', {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                },
-                client_id: spotifyApi.getClientId(),
-                response_type: 'token',
-                redirect_uri: '/passed',
-            });
+            console.log(1);
+            // let SpotifyWebApi = require('spotify-web-api-node');
+            // let spotifyApi = new SpotifyWebApi({
+            //     clientId: '7c64cd79ca78468b8119df22e9f6d9a6',
+            //     clientSecret: '7dbf678476c348129dedd98cec185a26',
+            //     redirectUri: 'http://www.example.com/callback'
+            // });
+            // axios.get('https://accounts.spotify.com/authorize', {
+            //     headers: {
+            //         'Access-Control-Allow-Origin': '*',
+            //     },
+            //     client_id: spotifyApi.getClientId(),
+            //     response_type: 'token',
+            //     redirect_uri: '/passed',
+            // });
 
 
             // spotifyApi.setAccessToken();
