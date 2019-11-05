@@ -1,57 +1,43 @@
 <template>
   <div class="hello">
-    <h1>Siemano witam w mojej stronce })</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
+    <template v-if="email">
+      <a href="/" class="btn btn-primary">Log out</a>
+      <p> Hi there, {{ email }}</p>
+    </template>
+    <template v-else>
+      <a href="http://localhost:8082/login" class="btn btn-primary">Log in with Spotify</a><br>
+    </template>
   </div>
 </template>
 
 <script>
-    import axios from 'axios';
+    import Vue from 'vue'
+
     export default {
         name: 'HelloWorld',
-        props: {
-            msg: String
+        data() {
+            return {
+                email: ''
+            }
         },
         mounted() {
-            console.log(1);
-            // let SpotifyWebApi = require('spotify-web-api-node');
-            // let spotifyApi = new SpotifyWebApi({
-            //     clientId: '7c64cd79ca78468b8119df22e9f6d9a6',
-            //     clientSecret: '7dbf678476c348129dedd98cec185a26',
-            //     redirectUri: 'http://www.example.com/callback'
-            // });
-            // axios.get('https://accounts.spotify.com/authorize', {
-            //     headers: {
-            //         'Access-Control-Allow-Origin': '*',
-            //     },
-            //     client_id: spotifyApi.getClientId(),
-            //     response_type: 'token',
-            //     redirect_uri: '/passed',
-            // });
-
-
-            // spotifyApi.setAccessToken();
-            //
-            //
-            // spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
-            //     function (data) {
-            //         console.log('Artist albums', data.body);
-            //         console.log('test');
-            //     },
-            //     function (err) {
-            //         console.error(err);
-            //     }
-            // );
+            let uri = window.location.href;
+            if (uri.indexOf('access_token') > -1) {
+                let access_token = uri.indexOf('access_token');
+                let refresh_token = uri.indexOf('refresh_token');
+                let access = uri.substring(access_token + 13, refresh_token - 1);
+                Vue.axios.get('https://api.spotify.com/v1/me', {
+                    headers: {
+                        'Authorization': 'Bearer ' + access
+                    }
+                }).then((response) => {
+                    this.email = response.data.email;
+                })
+            }
         }
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   h3 {
     margin: 40px 0 0;
