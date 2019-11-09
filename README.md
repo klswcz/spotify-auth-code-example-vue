@@ -1,29 +1,29 @@
-# another-spotify-app
+# Example VueJS app with implementation of Spotify's Authorization Code API flow
+
+Project showcases flow that let's you fetch access and refresh token [find out more here](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow)
+
+Frontend comes with Vue Router and VueX already configurated.
 
 ## Project setup
+### Set up your project credentials
+You will need to register your app and get your own credentials from the Spotify for Developers Dashboard and add this url
+```
+http://localhost:8081/callback/
+```
+to the Redirect URIs list.
+Open a project, go to server.js file and update `client_id`, `client_secret`, `redirect_uri`, `server_address` and `frontend_server_port` variables.
+Open HelloWorld.vue and replace `YOUR_SERVER_ADDRESS` with `http://localhost:8081/callback/`
+### Install dependencies
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Run VueJS
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
+### Run Express server
 ```
-yarn run build
+pm2 start server.js
 ```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
