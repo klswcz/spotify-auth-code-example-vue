@@ -14,7 +14,7 @@
     </template>
     <template v-else>
       <h1>Log in to Spotify using Authorization Code flow</h1>
-      <a href="http://localhost:8082/login" class="btn btn-primary">Log in with Spotify</a><br>
+      <a href="YOUR_SERVER_ADDRESS/login" class="btn btn-primary">Log in with Spotify</a><br>
     </template>
   </div>
 </template>
