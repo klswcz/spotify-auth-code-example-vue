@@ -9,7 +9,7 @@ Frontend comes with Vue Router and VueX already baked in.
 You will need to register your app and get your own credentials from the Spotify for Developers Dashboard and add this url
 `http://localhost:8081/callback/` to the Redirect URIs list.
 
-Open a project, go to server.js file and update `client_id`, `client_secret`, `redirect_uri`, `server_address` and `frontend_server_port` variables.
+Open a project, go to server.js file and update `client_id`, `client_secret`, `redirect_uri`, `server_address` and `frontend_server_port` variables to match your app's setup.
 Open HelloWorld.vue and replace `YOUR_SERVER_ADDRESS` with `http://localhost:8081/callback/`
 ### Install dependencies
 ```
