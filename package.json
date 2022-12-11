@@ -14,7 +14,7 @@
     "cookie-parser": "^1.4.5",
     "core-js": "^2.6.11",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "kind-of": "^6.0.3",
     "minimist": "^1.2.5",
     "query-string": "latest",
